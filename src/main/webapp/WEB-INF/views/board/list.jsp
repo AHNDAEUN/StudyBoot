@@ -38,7 +38,6 @@
 					<td>${vo.num}</td>
 					<td> ${vo.title}</td>
 					<td>${vo.contents}</td>
-<!--  	<td><a href="./list?page=${vo.num}" class="item-name">${vo.contents}</a></td>	-->				
 					<td>${vo.writer}</td>
 					<td>${vo.hit}</td>
 					<td>${vo.regDate}</td>
