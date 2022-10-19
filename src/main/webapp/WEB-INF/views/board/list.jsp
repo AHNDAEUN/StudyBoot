@@ -7,11 +7,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../temp/boot.jsp"></c:import>
+
 </head>
 <body>
+
+<div class="container-fluid">
+<div class="row col-8"> 
+<form action="add" method="GET">
+
 	<h1>List Page</h1>
 	
-	<table>
+	<div>
+	<table class="table  table-hover">
 		<thead>
 			<tr>
 				<th>글번호</th>
@@ -23,11 +31,14 @@
 			</tr>
 		</thead>
 		<tbody>
+   <h6><a href="../trade/detail?num=${item.itemNum}" class="item-name">${item.itemTitle}</a></h6>
+		
 			<c:forEach items="${list}" var="vo">
 				<tr>
 					<td>${vo.num}</td>
-					<td>${vo.title}</td>
+					<td> ${vo.title}</td>
 					<td>${vo.contents}</td>
+<!--  	<td><a href="./list?page=${vo.num}" class="item-name">${vo.contents}</a></td>	-->				
 					<td>${vo.writer}</td>
 					<td>${vo.hit}</td>
 					<td>${vo.regDate}</td>
@@ -36,27 +47,26 @@
 		</tbody>
 	
 	</table>
+	</div>
 	
-	<form action="./list" method="get">
-		<input name="search" value="${param.search}" type="text">
 	</form>
+	</div>
+	</div>
 	
-	<!-- 페이지 -->
-<%--     <div class="pagediv mt-3" style="display: flex; justify-content: center; ">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination paginate_sm">
-
-                <c:if test="${pager.pre}">
-                    <li class="page-item"><a class="page-link" href="./list?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">pre</a></li>
-                </c:if>
-                <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-                    <li class="page-item"><a class="page-link" href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
-                </c:forEach>
-                <li class="page-item ${pager.next?'':'disabled'}"><a class="page-link" href="./list?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">next</a></li>
-            </ul>
-        </nav>
-    </div> --%>
+	<div>
+	<a href="./add"class="btn btn-secondary">write</a>
+	</div>
 		
+		<script type="text/javascript">
+			let result ='${result}';
+			if(result !=""){
+			   if (result == '1'){
+				   alert('등록되었습니다.');
+			   }else{
+				   alert('등록이 실패되었습니다.');
+			   }
+			}
+		</script>
 	
 </body>
 </html>

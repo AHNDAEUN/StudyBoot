@@ -67,7 +67,6 @@ class QnaMapperTest {
 		for(int i=0;i<100;i++) {
 		//qnaMapper.setAdd();
 			qnaVO = new QnaVO();
-			qnaVO.setNum(1L);
 			qnaVO.setWriter("Writer"+i);
 			qnaVO.setTitle("Title"+i);
 			qnaVO.setContents("Contents"+i);

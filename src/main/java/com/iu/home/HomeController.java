@@ -36,8 +36,6 @@ public class HomeController {
 		log.debug("Debug Message");
 		log.trace("Trace Message");
 		
-		List<QnaVO> ar = qnaMapper.getList(pager);
-		log.info("List : {}, size : {}", ar, ar.size());
 		
 		return "index";
 	}
